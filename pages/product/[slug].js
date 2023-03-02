@@ -13,13 +13,16 @@ const ProductDetails = ({product, products}) => {
     const [secondFlavour, setsecondFlavour] = useState("")
     const [checkIfBox, setcheckIfBox] = useState(false)
 
+    const {image, name, details, price} = product;
+    const [index, setIndex] = useState(0);
+    const {decQty, incQty, qty, onAdd, setShowCart} = useStateContext();
+    
+
     if (!product) {
         return <h1>Product not found</h1>
     }
 
-    const {image, name, details, price} = product;
-    const [index, setIndex] = useState(0);
-    const {decQty, incQty, qty, onAdd, setShowCart} = useStateContext();
+   
 
     if (!checkIfBox && product.isBox) {
         console.log("it's a box")
